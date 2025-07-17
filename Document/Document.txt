@@ -1,0 +1,249 @@
+Here's a full project documentation draft for **ShopEZ: One-Stop Shop for Online Purchases**, covering all the points you mentioned:
+
+-ShopEZ: One-Stop Shop for Online Purchases**
+
+ 1. Introduction
+
+* **Project Title:** ShopEZ: One-Stop Shop for Online Purchases
+* **Team Members:**
+
+  * **Alice Smith** – Frontend Developer (React, UI/UX)
+  * **John Doe** – Backend Developer (Node.js, Express)
+  * **Maria Garcia** – Database Engineer (MongoDB)
+  * **David Lee** – QA and Documentation
+
+
+## 2. Project Overview
+
+* **Purpose:**
+  ShopEZ is an e-commerce web application designed to streamline online shopping by providing users with a clean, fast, and secure platform to browse, search, and purchase products. The goal is to deliver a seamless user experience with efficient backend operations.
+
+* **Features:**
+
+  * User registration and login with secure JWT authentication
+  * Product catalog with search and filter functionality
+  * Shopping cart and checkout process
+  * Admin dashboard for managing products
+  * Responsive design for mobile and desktop users
+
+---
+
+## 3. Architecture
+
+### **Frontend:**
+
+* Built using **React**
+* Utilizes **Axios** for API communication
+* Styled using **CSS** (with modular and responsive components)
+* State management via React hooks and local state
+
+### **Backend:**
+
+* Built on **Node.js** with **Express.js**
+* RESTful API design
+* Handles routing, authentication, and business logic
+* Middleware used for validation and error handling
+
+### **Database:**
+
+* **MongoDB** as the NoSQL database
+* Mongoose ODM used for schema modeling and data interactions
+* Collections include:
+
+  * `Users`: Stores user credentials and profile data
+  * `Products`: Product details, stock, categories
+  * `Orders`: Order details, timestamps, user links
+  * `Cart`: Temporary user cart items
+
+---
+
+## 4. Setup Instructions
+
+### **Prerequisites:**
+
+* Node.js (v16+)
+* MongoDB (local or cloud instance)
+* npm (v8+)
+
+### **Installation:**
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/shopez.git
+   cd shopez
+   ```
+
+2. Install dependencies:
+
+   * **Frontend:**
+
+     ```bash
+     cd client
+     npm install
+     ```
+   * **Backend:**
+
+     ```bash
+     cd server
+     npm install
+     ```
+
+3. Set up environment variables:
+
+   * In `server/.env`, add:
+
+     ```
+     MONGO_URI=your_mongodb_connection_string
+     JWT_SECRET=your_jwt_secret
+     PORT=5000
+     ```
+
+---
+
+## 5. Folder Structure
+
+### **Client (React Frontend):**
+
+```
+client/
+│
+├── public/
+├── src/
+│   ├── components/       # Reusable UI components
+│   ├── pages/            # Route-level components
+│   ├── context/          # Global state and context providers
+│   ├── api/              # Axios API handlers
+│   ├── App.js
+│   └── index.js
+```
+
+### **Server (Node.js Backend):**
+
+```
+server/
+│
+├── controllers/          # Route handler logic
+├── models/               # Mongoose schemas
+├── routes/               # Express routers
+├── middleware/           # Auth, error handlers
+├── utils/                # Utility functions
+├── server.js             # App entry point
+└── .env                  # Environment variables
+```
+
+---
+
+## 6. Running the Application
+
+### **Frontend:**
+
+```bash
+cd client
+npm start
+```
+
+### **Backend:**
+
+```bash
+cd server
+npm start
+```
+
+---
+
+## 7. API Documentation
+
+### **Authentication**
+
+* `POST /api/auth/register` – Register a new user
+* `POST /api/auth/login` – Login user and return JWT token
+
+### **Products**
+
+* `GET /api/products` – Get all products
+* `GET /api/products/:id` – Get product by ID
+* `POST /api/products` – Add new product (Admin only)
+* `PUT /api/products/:id` – Update product (Admin only)
+* `DELETE /api/products/:id` – Delete product (Admin only)
+
+### **Cart**
+
+* `POST /api/cart` – Add item to cart
+* `GET /api/cart` – Get current cart items
+* `DELETE /api/cart/:itemId` – Remove item from cart
+
+### **Orders**
+
+* `POST /api/orders` – Place an order
+* `GET /api/orders` – Get order history
+
+---
+
+## 8. Authentication
+
+* **Method:** JWT (JSON Web Tokens) + bcrypt
+* **Workflow:**
+
+  * On login, a JWT is generated and sent to the client
+  * The client stores the token in local storage
+  * Protected routes require the token in the `Authorization` header
+* **Password security:** Passwords are hashed using bcrypt before storing in the database
+
+---
+
+## 9. User Interface
+
+### **Screenshots:**
+
+(*You can insert actual images here if available*)
+
+* Homepage with featured products
+* Product detail page
+* Cart and checkout process
+* Admin product management dashboard
+
+---
+
+## 10. Testing
+
+* **Testing Tools:** Jest, React Testing Library (Frontend); Supertest + Mocha (Backend)
+* **Strategy:**
+
+  * Unit tests for utility functions
+  * Integration tests for API endpoints
+  * UI component tests for critical React components
+
+---
+
+## 11. Screenshots or Demo
+
+* **Live Demo:** [https://shopez-demo.vercel.app](https://shopez-demo.vercel.app) *(Replace with actual link if hosted)*
+* **Screenshots:**
+
+  * [ ] Homepage
+  * [ ] Product Detail
+  * [ ] Cart
+  * [ ] Admin Panel
+
+---
+
+## 12. Known Issues
+
+* Search functionality does not support fuzzy matching
+* Product image upload feature still under development
+* Limited mobile optimization in some pages
+
+---
+
+## 13. Future Enhancements
+
+* Add Stripe or Razorpay payment integration
+* Implement real-time inventory management
+* Improve admin dashboard with analytics
+* Add user reviews and ratings for products
+* Add email notifications for order confirmation
+
+---
+
+Let me know if you'd like this converted into a downloadable PDF or added to a `README.md` format.
